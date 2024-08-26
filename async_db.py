@@ -49,7 +49,7 @@ class AsyncMysqlDB:
         fields = [f'`{field}`' for field in fields]
         fieldstr = ','.join(fields)
         valstr = ','.join(['%s'] * len(item))
-        sql = "INSERT INTO %s (%s) VALUES(%s)" % (table_name, fieldstr, valstr)
+        sql = "INSERT INTO %s (%s) VALUES(%s) ON DUPLICATE KEY UPDATE note_id=note_id" % (table_name, fieldstr, valstr)
         async with self.__pool.acquire() as conn:
             async with conn.cursor(aiomysql.DictCursor) as cur:
                 await cur.execute(sql, values)
