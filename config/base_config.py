@@ -1,6 +1,6 @@
 # 基础配置
 PLATFORM = "xhs"
-KEYWORDS = "失业"
+KEYWORDS = "失业,入职"
 LOGIN_TYPE = "qrcode"  # qrcode or phone or cookie
 COOKIES = ""
 # 具体值参见media_platform.xxx.field下的枚举值，暂时只支持小红书
